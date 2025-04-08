@@ -3,7 +3,7 @@ COMPILO		=	c++
 42_FLAGS	=	-Wall -Wextra -Werror -std=c++98
 DEBUG_FLAG	=	-g3
 INC_FLAGS	=	-Iinclude
-FLAGS		=	$(42_FLAGS)
+FLAGS		=	$(CXXFLAGS)
 FLAGS		+=	$(DEBUG_FLAG)
 FLAGS		+=	$(INC_FLAGS)
 
@@ -23,12 +23,12 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@echo "Linking $<..."
-	@$(COMPILO) $(OBJ) -o $(NAME)
+	@$(CXX) $(OBJ) -o $(NAME)
 
 $(BUI_DIR)%.o: $(SRC_DIR)%.cpp | $(OBJF)
 	@mkdir -p $(dir $@)
 	@echo "Compiling $<..."
-	@$(COMPILO) $(FLAGS) -c $< -o $@
+	@$(CXX) $(FLAGS) -c $< -o $@
 
 $(OBJF):
 	@touch $(OBJF)
@@ -42,3 +42,32 @@ fclean: clean
 	@rm -rf $(NAME)
 
 re: fclean all
+
+BLUE	=	\033[0;34m
+BLACK	=	\033[0;30m
+ORANGE	=	\033[0;33m
+WHITE	=	\033[1;37m
+RESET	=	\033[0m
+
+print_sonic:
+	@echo "$(BLUE)"
+	@echo "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⣤⣤⣤⣄⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+	@echo "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢻⣿⣿⣿⣿⣿⣿⣿⣷⣶⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+	@echo "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+	@echo "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⡀⠀⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+	@echo "⠀⠀⠀⠀⠀⠀⣀⣤⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+	@echo "⠀⠀⠀⣠⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+	@echo "⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀"
+	@echo "⠘⠛⠿⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀⠀"
+	@echo "⠀⠀⠀⠀⠀⠀⠉⠙⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⠀⠀⠀⠀⠀⠀"
+	@echo "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣙⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠏⠀⠀⠀⠀⠙⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⣤⣤⣤⣤⣀⡀"
+	@echo "⠀⠀⠀⠀⠀⠀⠀⢀⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⠀⠀⠀$(RESET)⢀⡀⠀$(BLUE)⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁"
+	@echo "⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀$(RESET)⢀⣾⣿⠃⠀$(BLUE)⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀"
+	@echo "⠀⠀⠀⠀⠀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧$(RESET)⣠⣿⡿⠃⠀⠀$(BLUE)⢸⣿⣿⣿⣿⣿⣿⣿⢿⣿⣿⠋⠀⠀⠀⠀"
+	@echo "⠀⠀⠀⠀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿$(ORANGE)⣿⣿⣿$(WHITE)⣿⣿⣿$(ORANGE)⣿⣿⣅⠀⠀⠀⠀$(BLUE)⠘⣿⣿⣿⣿⣿⠛⢡⣾⠟⠁⠀⠀⠀⠀⠀"
+	@echo "⠀⠀⠀⢰⣿⣿⣿⣿⣿⠿⠟⠛⠋⠉⠉⠉⠉$(ORANGE)⠉⠉⠙⢿$(WHITE)⣿⣿⣿$(ORANGE)⣿⣿⣶⣶⣤⣤$(BLUE)⣝⣻⣿⡿⢃⠴⠋⠀⠀⠀⠀⠀⠀⠀⠀"
+	@echo "⠀⠀⠀⣿⡿⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀$(ORANGE)⠈⠛⠿$(WHITE)⣿⣿$(ORANGE)⣿⣿⣿⣿⣿⣿⣥⣒$(BLUE)⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+	@echo "⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀$(ORANGE)⠉⠙⠛⠛⠛⠋$(BLACK)⠙⠻⠿⠿⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+	@echo "$(RESET)"
+
+.PHONY: all clean fclean re

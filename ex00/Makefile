@@ -3,7 +3,7 @@ COMPILO		=	c++
 42_FLAGS	=	-Wall -Wextra -Werror -Wpedantic -std=c++98
 DEBUG_FLAG	=	-g3
 INC_FLAGS	=	-Iinclude
-FLAGS		=	$(42_FLAGS)
+FLAGS		=	$(CXXFLAGS)
 FLAGS		+=	$(DEBUG_FLAG)
 FLAGS		+=	$(INC_FLAGS)
 
@@ -25,12 +25,12 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@echo "Linking $<..."
-	@$(COMPILO) $(OBJ) -o $(NAME)
+	@$(CXX) $(OBJ) -o $(NAME)
 
 $(BUI_DIR)%.o: $(SRC_DIR)%.cpp | $(OBJF)
 	@mkdir -p $(dir $@)
 	@echo "Compiling $<..."
-	@$(COMPILO) $(FLAGS) -c $< -o $@
+	@$(CXX) $(FLAGS) -c $< -o $@
 
 $(OBJF):
 	@touch $(OBJF)
