@@ -1,15 +1,15 @@
 #include "Zombie.hpp"
 
-void	Zombie::name_zombie( std::string name )
+void	Zombie::name_zombie(std::string name)
 {
-	this->name = name;
+	this->_name = name;
 }
 
-Zombie*	zombieHorde( int N, std::string name)
+Zombie*	zombieHorde(const int N, std::string name)
 {
-	if (N <= 1)
+	if (N <= 0)
 	{
-		std::cout << "Horde is plural, my friend" << std::endl;
+		std::cout << "A horde cannot be empty my friend." << std::endl;
 		return (NULL);
 	}
 	Zombie *horde = new Zombie[N];

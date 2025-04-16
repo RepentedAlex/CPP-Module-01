@@ -1,11 +1,11 @@
 NAME		=	moar_brainz
-COMPILO		=	c++
+CXX		=	c++
 42_FLAGS	=	-Wall -Wextra -Werror -Wpedantic -std=c++98
 DEBUG_FLAG	=	-g3
 INC_FLAGS	=	-Iinclude
-FLAGS		=	$(CXXFLAGS)
-FLAGS		+=	$(DEBUG_FLAG)
-FLAGS		+=	$(INC_FLAGS)
+CXXFLAGS		=	$(42_FLAGS)
+CXXFLAGS		+=	$(DEBUG_FLAG)
+CXXFLAGS		+=	$(INC_FLAGS)
 
 BUI_DIR		=	build/
 INC_DIR		=	include/
@@ -23,13 +23,14 @@ OBJF		=	.cache_exists
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@echo "Linking $<..."
+	@echo "Linking $@..."
 	@$(CXX) $(OBJ) -o $(NAME)
+	@echo "$(NAME) executable is ready! :D"
 
 $(BUI_DIR)%.o: $(SRC_DIR)%.cpp | $(OBJF)
 	@mkdir -p $(dir $@)
 	@echo "Compiling $<..."
-	@$(CXX) $(FLAGS) -c $< -o $@
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(OBJF):
 	@touch $(OBJF)
@@ -43,3 +44,5 @@ fclean: clean
 	@rm -rf $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re
