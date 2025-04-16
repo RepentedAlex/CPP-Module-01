@@ -1,8 +1,11 @@
 NAME		=	harlFilter
-CXX			=	c++
-CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
-CXXFLAGS	+=	-g3
-CXXFLAGS	+=	-Iinclude
+COMPILO		=	c++
+42_FLAGS	=	-Wall -Wextra -Werror -std=c++98
+DEBUG_FLAG	=	-g3
+INC_FLAGS	=	-Iinclude
+CXXFLAGS	=	$(42_FLAGS)
+CXXFLAGS	+=	$(DEBUG_FLAG)
+CXXFLAGS	+=	$(INC_FLAGS)
 
 BUI_DIR		=	build/
 INC_DIR		=	include/
