@@ -1,10 +1,13 @@
 #include "Zombie.hpp"
 
-int	main( void )
+int	main()
 {
-	randomChump("test1");
-	Zombie *ptr = newZombie("testnew");
+	Zombie	zombie1("Johnny");
+
+	zombie1.announce();
+	randomChump("Shadow");
+	Zombie *ptr = newZombie("V");
 	ptr->announce();
 	delete ptr;
-	return (0);
+	return (EXIT_SUCCESS);
 }

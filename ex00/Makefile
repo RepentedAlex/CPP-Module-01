@@ -15,7 +15,7 @@ SRC_FIL		=	\
 				main \
 				newZombie \
 				randomChump \
-				zombie
+				Zombie
 
 SRC			=	$(addprefix $(SRC_DIR), $(addsuffix .cpp, $(SRC_FIL)))
 OBJ			=	$(addprefix $(BUI_DIR), $(addsuffix .o, $(SRC_FIL)))
@@ -24,8 +24,9 @@ OBJF		=	.cache_exists
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@echo "Linking $<..."
+	@echo "Linking $@..."
 	@$(CXX) $(OBJ) -o $(NAME)
+	@echo "$(NAME) executable is ready! :D"
 
 $(BUI_DIR)%.o: $(SRC_DIR)%.cpp | $(OBJF)
 	@mkdir -p $(dir $@)
@@ -44,3 +45,5 @@ fclean: clean
 	@rm -rf $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re
