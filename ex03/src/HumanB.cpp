@@ -6,7 +6,7 @@ HumanB::HumanB( std::string name ) : _name(name)
 HumanB::~HumanB()
 {}
 
-void	HumanB::attack()
+void	HumanB::attack() const
 {
 	std::string is_armed = this->_weapon->getType();
 
