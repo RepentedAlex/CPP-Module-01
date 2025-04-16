@@ -1,6 +1,6 @@
 #include "Harl.hpp"
 
-int	main(void)
+int	main()
 {
 	Harl		harl;
 	std::string	s1 = "DEBUG";
