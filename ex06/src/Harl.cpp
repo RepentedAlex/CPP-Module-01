@@ -2,10 +2,10 @@
 
 Harl::Harl()
 {
-	this->s_ft_array[DEBUG] = (struct s_ft_array){DEBUG, "DEBUG", &Harl::debug};
-	this->s_ft_array[INFO] = (struct s_ft_array){INFO, "INFO", &Harl::info};
-	this->s_ft_array[WARNING] = (struct s_ft_array){WARNING, "WARNING", &Harl::warning};
-	this->s_ft_array[ERROR] = (struct s_ft_array){ERROR, "ERROR", &Harl::error};
+	this->s_ft_array[DEBUG] = (struct s_ft_array){DEBUG, "DEBUG", &Harl::_debug};
+	this->s_ft_array[INFO] = (struct s_ft_array){INFO, "INFO", &Harl::_info};
+	this->s_ft_array[WARNING] = (struct s_ft_array){WARNING, "WARNING", &Harl::_warning};
+	this->s_ft_array[ERROR] = (struct s_ft_array){ERROR, "ERROR", &Harl::_error};
 }
 
 Harl::~Harl()
@@ -40,25 +40,25 @@ void Harl::complain(std::string level)
 	}
 }
 
-void	Harl::debug()
+void	Harl::_debug()
 {
 	std::cout << "[DEBUG]" << std::endl;
 	std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do!" << std::endl;
 }
 
-void	Harl::info()
+void	Harl::_info()
 {
 	std::cout << "[INFO]" << std::endl;
 	std::cout << "I cannot believe adding extra bacon costs more money. You didn’t put enough bacon in my burger! If you did, I wouldn’t be asking for more!" << std::endl;
 }
 
-void	Harl::warning()
+void	Harl::_warning()
 {
 	std::cout << "[WARNING]" << std::endl;
 	std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming for years, whereas you started working here just last month." << std::endl;
 }
 
-void	Harl::error()
+void	Harl::_error()
 {
 	std::cout << "[ERROR]" << std::endl;
 	std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
