@@ -9,5 +9,5 @@ int	main()
 	Zombie *ptr = newZombie("V");
 	ptr->announce();
 	delete ptr;
-	return (EXIT_SUCCESS);
+	return (0);
 }
