@@ -22,8 +22,9 @@ OBJF		=	.cache_exists
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@echo "Linking $<..."
+	@echo "Linking $@..."
 	@$(CXX) $(OBJ) -o $(NAME)
+	@echo "$(NAME) executable is ready! :D"
 
 $(BUI_DIR)%.o: $(SRC_DIR)%.cpp | $(OBJF)
 	@mkdir -p $(dir $@)
