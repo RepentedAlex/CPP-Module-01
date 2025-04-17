@@ -26,10 +26,10 @@ void Harl::complain(std::string level)
 			(this->*s_ft_array[DEBUG].func)();
 			__attribute__ ((fallthrough));
 		case (1):
-			(this->*s_ft_array[WARNING].func)();
+			(this->*s_ft_array[INFO].func)();
 			__attribute__ ((fallthrough));
 		case (2):
-			(this->*s_ft_array[INFO].func)();
+			(this->*s_ft_array[WARNING].func)();
 			__attribute__ ((fallthrough));
 		case (3):
 			(this->*s_ft_array[ERROR].func)();

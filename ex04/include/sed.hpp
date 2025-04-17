@@ -3,5 +3,6 @@
 
 #include <complex>
 #include <fstream>
+#include <iostream>
 
 #endif //SED_HPP

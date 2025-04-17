@@ -11,5 +11,6 @@ int	main()
 		ptr[i].announce();
 	}
 	std::cout << std::endl;
+	delete[] ptr;
 	return (0);
 }
