@@ -8,10 +8,14 @@ class Zombie
 {
 	public:
 		Zombie();
+		Zombie(std::string fname);
 		~Zombie();
 		void	announce();
-		void	name_zombie(std::string name);
+		void	name_zombie(std::string name); // this function is never implemented lmao
 
+	// missing getter and setter
+		void	setName(std::string name) { this->_name = name; }
+		std::string	getName() const { return this->_name; }
 	private:
 		std::string	_name;
 };

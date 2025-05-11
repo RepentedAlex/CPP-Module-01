@@ -1,23 +1,39 @@
 #include "sed.hpp"
 
-void	substitute(std::ifstream &infile, std::string needle, std::string replace, std::ofstream &outfile)
+// original:
+/*
+void   substitute(std::ifstream &infile, std::string needle, std::string replace, std::ofstream &outfile)
 {
-	size_t	found_index = 0;
+	size_t  found_index = 0;
 	std::string haystack;
 
-	while (std::getline(infile, haystack))
-	{
+	while (std::getline(infile, haystack)) {
 		found_index = 0;
-		while ((found_index = haystack.find(needle, found_index)) != std::string::npos)
+		while ((found_index = haystack.find(needle, found_index)) != std::string::npos) {
+			haystack.erase(found_index, needle.size());
+			haystack.insert(found_index, replace);
+			found_index += replace.size();
+		}
+		outfile << haystack << std::endl;
+	}
+	outfile << std::endl;
+}
+*/
+
+void	substitute(std::ifstream &infile, std::string needle, std::string replace, std::ofstream &outfile)
+{
+	// for-loop for life
+	for (std::string haystack; \
+	std::getline(infile, haystack); \
+	outfile << haystack << std::endl)
+		for (size_t	found_index = 0; \
+		(found_index = haystack.find(needle, found_index)) != std::string::npos; \
+		found_index = 0)
 		{
 			haystack.erase(found_index, needle.size());
 			haystack.insert(found_index, replace);
 			found_index += replace.size();
 		}
-		outfile << haystack;
-		outfile << std::endl;
-	}
-	outfile << std::endl;
 }
 
 int	main(int argc, char *argv[])

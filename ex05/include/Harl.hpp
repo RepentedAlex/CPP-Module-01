@@ -1,7 +1,7 @@
 #ifndef HARL_HPP
 #define HARL_HPP
 
-#include <iostream>
+#include <iostream> // not in the .hpp please
 #include <string>
 
 typedef enum	e_levels
@@ -26,6 +26,10 @@ class Harl
 		void	_error();
 
 		struct			s_ft_array
+		// why ft? why array? your struct is not an array...
+		// idea for new name:
+		//	-> s_binding
+		//	-> s_table
 		{
 			t_levels	levels;
 			const char	*str;

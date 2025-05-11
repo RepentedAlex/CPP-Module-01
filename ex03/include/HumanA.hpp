@@ -8,11 +8,13 @@
 class HumanA
 {
 	public:
-		HumanA();
+//		HumanA();
 		HumanA(std::string name, Weapon &weapon);
 		~HumanA();
 		void	attack() const;
 
+		std::string	getName() const { return this->_name; }
+		Weapon	*getWeapon() const { return this->_weapon; }
 	private:
 		std::string	_name;
 		Weapon		*_weapon;

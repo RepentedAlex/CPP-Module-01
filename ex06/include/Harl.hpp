@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <string>
-#include <valarray>
 
 typedef enum	e_levels
 {
@@ -27,6 +26,7 @@ class Harl
 		void	_error();
 
 	struct			s_ft_array
+	// same as previous exercise - bad name
 	{
 		t_levels	levels;
 		const char	*str;

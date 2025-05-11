@@ -12,7 +12,7 @@ INC_DIR		=	include/
 SRC_DIR		=	src/
 
 SRC_FIL		=	\
-				main \
+				main_baptiste \
 				newZombie \
 				randomChump \
 				Zombie
