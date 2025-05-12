@@ -3,13 +3,27 @@
 
 #include <iostream>
 
+#define PRINT_42 \
+do \
+{ \
+	std::cout << __PRETTY_FUNCTION__ << "\t called" << std::endl; \
+} \
+while (0)
+
 class Zombie
 {
 	public:
-		Zombie();
-		Zombie(std::string name);
-		~Zombie();
-		void	announce();
+		// Constructors
+			Zombie();
+			Zombie(std::string name);
+		// Destructors
+			~Zombie();
+		// Getters
+			std::string	const &getName() const;
+		// Setters
+			void	setName(std::string name);
+		// Member functions
+			void	announce();
 
 	private:
 		std::string	_name;
