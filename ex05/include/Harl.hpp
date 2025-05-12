@@ -4,6 +4,13 @@
 #include <iostream>
 #include <string>
 
+#define PRINT_42 \
+do \
+{ \
+	std::cout << __PRETTY_FUNCTION__ << "\t called" << std::endl; \
+} \
+while (0)
+
 typedef enum	e_levels
 {
 	DEBUG = 0,
@@ -15,9 +22,12 @@ typedef enum	e_levels
 class Harl
 {
 	public:
-		Harl();
-		~Harl();
-		void	complain(std::string level);
+		// Constructors
+			Harl();
+		// Destructors
+			~Harl();
+		// Member Functions
+			void	complain(std::string level);
 
 	private:
 		void	_debug();
@@ -25,12 +35,12 @@ class Harl
 		void	_warning();
 		void	_error();
 
-		struct			s_ft_array
+		struct			s_binding
 		{
 			t_levels	levels;
 			const char	*str;
 			void		(Harl::*func)();
-		}				s_ft_array[4];
+		}				s_binding[4];
 };
 
 #endif //HARL_HPP

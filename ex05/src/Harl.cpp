@@ -1,21 +1,27 @@
 #include "Harl.hpp"
 
+///CONSTRUCTORS/////////////////////////////////////////////////////////////////
 Harl::Harl()
 {
-	this->s_ft_array[DEBUG] = (struct s_ft_array){DEBUG, "DEBUG", &Harl::_debug};
-	this->s_ft_array[INFO] = (struct s_ft_array){INFO, "INFO", &Harl::_info};
-	this->s_ft_array[WARNING] = (struct s_ft_array){WARNING, "WARNING", &Harl::_warning};
-	this->s_ft_array[ERROR] = (struct s_ft_array){ERROR, "ERROR", &Harl::_error};
+	PRINT_42;
+	this->s_binding[DEBUG] = (struct s_binding){DEBUG, "DEBUG", &Harl::_debug};
+	this->s_binding[INFO] = (struct s_binding){INFO, "INFO", &Harl::_info};
+	this->s_binding[WARNING] = (struct s_binding){WARNING, "WARNING", &Harl::_warning};
+	this->s_binding[ERROR] = (struct s_binding){ERROR, "ERROR", &Harl::_error};
 }
 
+///DESTRUCTORS//////////////////////////////////////////////////////////////////
 Harl::~Harl()
-{}
+{
+	PRINT_42;
+}
 
+///MEMBER FUNCTIONS/////////////////////////////////////////////////////////////
 void Harl::complain(std::string level)
 {
 	for (int i = 0 ; i < 4 ; i++) {
-		if (level == this->s_ft_array[i].str)
-			(this->*s_ft_array[i].func)();
+		if (level == this->s_binding[i].str)
+			(this->*s_binding[i].func)();
 	}
 }
 
