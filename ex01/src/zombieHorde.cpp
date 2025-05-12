@@ -1,10 +1,5 @@
 #include "Zombie.hpp"
 
-void	Zombie::name_zombie(std::string name)
-{
-	this->_name = name;
-}
-
 Zombie*	zombieHorde(const int N, std::string name)
 {
 	if (N <= 0)
@@ -19,6 +14,6 @@ Zombie*	zombieHorde(const int N, std::string name)
 		return (NULL);
 	}
 	for (int i = 0; i < N; i++)
-		horde[i].name_zombie(name);
+		horde[i].setName(name);
 	return (horde);
 }

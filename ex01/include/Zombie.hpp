@@ -1,16 +1,27 @@
 #ifndef ZOMBIE_H
 #define ZOMBIE_H
 
-#include <iostream>
 #include <string>
+#include <iostream>
+
+#define PRINT_42 \
+do \
+{ \
+	std::cout << __PRETTY_FUNCTION__ << "\t called" << std::endl; \
+} \
+while (0)
 
 class Zombie
 {
 	public:
-		Zombie();
-		~Zombie();
-		void	announce();
-		void	name_zombie(std::string name);
+		// Constructors
+			Zombie();
+		// Destructors
+			~Zombie();
+		// Setters
+			void	setName(std::string name);
+		// Member functions
+			void	announce();
 
 	private:
 		std::string	_name;
