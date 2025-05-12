@@ -18,6 +18,8 @@ class Zombie
 			Zombie();
 		// Destructors
 			~Zombie();
+		// Getters
+			std::string	const getName() const;
 		// Setters
 			void	setName(std::string name);
 		// Member functions
