@@ -1,13 +1,15 @@
 #include "Harl.hpp"
 
+///CONSTRUCTORS/////////////////////////////////////////////////////////////////
 Harl::Harl()
 {
-	this->s_ft_array[DEBUG] = (struct s_ft_array){DEBUG, "DEBUG", &Harl::_debug};
-	this->s_ft_array[INFO] = (struct s_ft_array){INFO, "INFO", &Harl::_info};
-	this->s_ft_array[WARNING] = (struct s_ft_array){WARNING, "WARNING", &Harl::_warning};
-	this->s_ft_array[ERROR] = (struct s_ft_array){ERROR, "ERROR", &Harl::_error};
+	this->s_binding[DEBUG] = (struct s_binding){DEBUG, "DEBUG", &Harl::_debug};
+	this->s_binding[INFO] = (struct s_binding){INFO, "INFO", &Harl::_info};
+	this->s_binding[WARNING] = (struct s_binding){WARNING, "WARNING", &Harl::_warning};
+	this->s_binding[ERROR] = (struct s_binding){ERROR, "ERROR", &Harl::_error};
 }
 
+///DESTRUCTORS//////////////////////////////////////////////////////////////////
 Harl::~Harl()
 {}
 
@@ -16,23 +18,23 @@ void Harl::complain(std::string level)
 	int	i = 0;
 	while (i < 4)
 	{
-		if (level == this->s_ft_array[i].str)
+		if (level == this->s_binding[i].str)
 			break ;
 		i++;
 	}
 	switch (i)
 	{
 		case (0):
-			(this->*s_ft_array[DEBUG].func)();
+			(this->*s_binding[DEBUG].func)();
 			__attribute__ ((fallthrough));
 		case (1):
-			(this->*s_ft_array[INFO].func)();
+			(this->*s_binding[INFO].func)();
 			__attribute__ ((fallthrough));
 		case (2):
-			(this->*s_ft_array[WARNING].func)();
+			(this->*s_binding[WARNING].func)();
 			__attribute__ ((fallthrough));
 		case (3):
-			(this->*s_ft_array[ERROR].func)();
+			(this->*s_binding[ERROR].func)();
 			break ;
 		default:
 			std::cout << "Hey, buddy... I didn't quite catch what you said to me..." << std::endl;
