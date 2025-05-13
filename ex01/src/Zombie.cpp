@@ -14,7 +14,7 @@ Zombie::~Zombie()
 }
 
 ///GETTERS/////////////////////////////////////////////////////////////////////
-std::string	const Zombie::getName() const
+std::string	const	Zombie::getName() const
 {
 	return (this->_name);
 }

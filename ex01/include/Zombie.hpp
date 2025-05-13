@@ -19,11 +19,11 @@ class Zombie
 		// Destructors
 			~Zombie();
 		// Getters
-			std::string	const getName() const;
+			std::string	const	getName() const;
 		// Setters
-			void	setName(std::string name);
+			void				setName(std::string name);
 		// Member functions
-			void	announce();
+			void				announce();
 
 	private:
 		std::string	_name;
