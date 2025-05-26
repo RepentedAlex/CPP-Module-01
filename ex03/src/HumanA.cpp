@@ -1,7 +1,7 @@
 #include "HumanA.hpp"
 
 ///CONSTRUCTORS/////////////////////////////////////////////////////////////////
-HumanA::HumanA(std::string name, Weapon &weapon) : _name(name), _weapon(&weapon)
+HumanA::HumanA(std::string name, Weapon &weapon) : _name(name), _weapon(weapon)
 {
 	PRINT_42;
 }
@@ -18,7 +18,7 @@ std::string const	&HumanA::getName() const
 	return (this->_name);
 }
 
-Weapon const	*HumanA::getWeapon() const
+Weapon const	&HumanA::getWeapon() const
 {
 
 	return (this->_weapon);
@@ -32,7 +32,7 @@ void	HumanA::setName(std::string name)
 
 void	HumanA::setWeapon(Weapon &weapon)
 {
-	this->_weapon = &weapon;
+	this->_weapon = weapon;
 }
 
 ///MEMBER FUNCTIONS/////////////////////////////////////////////////////////////
@@ -40,6 +40,6 @@ void	HumanA::attack() const
 {
 	std::cout << this->getName() << " " <<
 	"attacks with their " <<
-	this->getWeapon()->getType() <<
+	this->getWeapon().getType() <<
 	std::endl;
 }

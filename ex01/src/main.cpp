@@ -7,7 +7,7 @@ int	main()
 	Zombie *ptr = zombieHorde(N, "test");
 	for (int i = 0; i < N; i++)
 	{
-		std::cout << "Zombie[" << ptr[i].getName() << "]";
+		std::cout << "Zombie[" << i << "]";
 		ptr[i].announce();
 	}
 	std::cout << std::endl;

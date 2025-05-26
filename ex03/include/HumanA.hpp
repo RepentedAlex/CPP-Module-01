@@ -14,7 +14,7 @@ class HumanA
 			~HumanA();
 		// Getters
 			std::string const	&getName() const;
-			Weapon const		*getWeapon() const;
+			Weapon const		&getWeapon() const;
 		// Setters
 			void				setName(std::string name);
 			void				setWeapon(Weapon &weapon);
@@ -23,7 +23,7 @@ class HumanA
 
 	private:
 		std::string	_name;
-		Weapon		*_weapon;
+		Weapon		&_weapon;
 };
 
 #endif //HUMANA_HPP
